@@ -1,4 +1,4 @@
-"""Parser for Qingping BLE advertisements.
+"""Parser for OCleanX BLE advertisements.
 
 This file is shamelessly copied from the following repository:
 https://github.com/Ernst79/bleparser/blob/c42ae922e1abed2720c7fac993777e1bd59c0c93/package/bleparser/qingping.py
@@ -20,36 +20,36 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
-class QingpingDevice:
+class OCleanXDevice:
 
     model: str
     name: str
 
 
 DEVICE_TYPES = {
-    0x01: QingpingDevice("CGG1", ""),
-    0x04: QingpingDevice("CGH1", "Door/Window Sensor"),  # Door/Window Sensor
-    0x07: QingpingDevice("CGG1", ""),
-    0x09: QingpingDevice("CGP1W", ""),
-    0x16: QingpingDevice("CGG1", "Qingping Temp RH M"),
-    0x12: QingpingDevice("CGPR1", "Motion & Light"),
-    0x1E: QingpingDevice("CGC1", "BT Clock Lite"),
-    0x0C: QingpingDevice("CGD1", "Alarm Clock"),
-    0x0E: QingpingDevice("CGDN1", "Air Monitor Lite"),
-    0x24: QingpingDevice("CGDN1", "Air Monitor Lite"),
-    0x0F: QingpingDevice("CGM1", "Lee Guitars Thermo-Hygrometer"),
+    0x01: OCleanXDevice("CGG1", ""),
+    0x04: OCleanXDevice("CGH1", "Door/Window Sensor"),  # Door/Window Sensor
+    0x07: OCleanXDevice("CGG1", ""),
+    0x09: OCleanXDevice("CGP1W", ""),
+    0x16: OCleanXDevice("CGG1", "OCleanX Temp RH M"),
+    0x12: OCleanXDevice("CGPR1", "Motion & Light"),
+    0x1E: OCleanXDevice("CGC1", "BT Clock Lite"),
+    0x0C: OCleanXDevice("CGD1", "Alarm Clock"),
+    0x0E: OCleanXDevice("CGDN1", "Air Monitor Lite"),
+    0x24: OCleanXDevice("CGDN1", "Air Monitor Lite"),
+    0x0F: OCleanXDevice("CGM1", "Lee Guitars Thermo-Hygrometer"),
 }
 
 
 SERVICE_DATA_UUID = "0000fdcd-0000-1000-8000-00805f9b34fb"
 
 
-class QingpingBluetoothDeviceData(BluetoothData):
-    """Date update for Qingping Bluetooth devices."""
+class OCleanXBluetoothDeviceData(BluetoothData):
+    """Date update for OCleanX Bluetooth devices."""
 
     def _start_update(self, service_info: BluetoothServiceInfo) -> None:
         """Update from BLE advertisement data."""
-        _LOGGER.debug("Parsing qingping BLE advertisement data: %s", service_info)
+        _LOGGER.debug("Parsing OCleanX BLE advertisement data: %s", service_info)
         lower_name = service_info.name.lower()
         if SERVICE_DATA_UUID not in service_info.service_data:
             return
@@ -61,19 +61,19 @@ class QingpingBluetoothDeviceData(BluetoothData):
             return
         if device.name:
             name = device.name
-        elif lower_name.startswith("qingping "):
+        elif lower_name.startswith("ocleanx "):
             name = service_info.name[9:]
         else:
             name = service_info.name
         self.set_device_type(device.model)
         self.set_title(f"{name} {short_address(service_info.address)}")
         self.set_device_name(f"{name} {short_address(service_info.address)}")
-        self.set_device_manufacturer("Qingping")
+        self.set_device_manufacturer("OCleanX")
         self._process_update(data)
 
     def _process_update(self, data: bytes) -> None:
         """Update from BLE advertisement data."""
-        _LOGGER.debug("Parsing Qingping BLE advertisement data: %s", data)
+        _LOGGER.debug("Parsing OCleanX BLE advertisement data: %s", data)
         msg_length = len(data)
         if msg_length < 12:
             return
@@ -140,6 +140,6 @@ class QingpingBluetoothDeviceData(BluetoothData):
             # result.update({"packet": packet_id})
         else:
             _LOGGER.debug(
-                "Unknown data received from Qingping device: %s",
+                "Unknown data received from OCleanX device: %s",
                 xdata.hex(),
             )

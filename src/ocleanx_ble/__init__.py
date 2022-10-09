@@ -1,4 +1,4 @@
-"""Parser for Qingping BLE advertisements."""
+"""Parser for OCleanX BLE advertisements."""
 from __future__ import annotations
 
 from sensor_state_data import (
@@ -13,12 +13,12 @@ from sensor_state_data import (
     Units,
 )
 
-from .parser import QingpingBluetoothDeviceData
+from .parser import OCleanXBluetoothDeviceData
 
-__version__ = "0.7.0"
+__version__ = "0.1.0"
 
 __all__ = [
-    "QingpingBluetoothDeviceData",
+    "OCleanXBluetoothDeviceData",
     "BinarySensorDeviceClass",
     "BinarySensorValue",
     "SensorDescription",

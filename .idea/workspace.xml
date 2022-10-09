@@ -2,7 +2,7 @@
 <project version="4">
   <component name="RunManager">
     <configuration name="pytest" type="tests" factoryName="py.test">
-      <module name="qingping-ble" />
+      <module name="ocleanx-ble" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />

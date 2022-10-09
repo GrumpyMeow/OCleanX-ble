@@ -12,15 +12,15 @@ from sensor_state_data import (
     Units,
 )
 
-from qingping_ble.parser import QingpingBluetoothDeviceData
+from ocleanx_ble.parser import OCleanXBluetoothDeviceData
 
 
 def test_can_create():
-    QingpingBluetoothDeviceData()
+    OCleanXBluetoothDeviceData()
 
 
 LIGHT_AND_MOTION = BluetoothServiceInfo(
-    name="Qingping Motion & Light",
+    name="OCleanX Motion & Light",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -33,7 +33,7 @@ LIGHT_AND_MOTION = BluetoothServiceInfo(
 )
 
 MOTION_AND_LIGHT_ENSURE_SUPPORTED = BluetoothServiceInfo(
-    name="Qingping Motion & Light",
+    name="OCleanX Motion & Light",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -46,7 +46,7 @@ MOTION_AND_LIGHT_ENSURE_SUPPORTED = BluetoothServiceInfo(
 
 
 ALARM_CLOCK = BluetoothServiceInfo(
-    name="Qingping Alarm Clock",
+    name="OCleanX Alarm Clock",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -60,7 +60,7 @@ ALARM_CLOCK = BluetoothServiceInfo(
 
 
 AIR_MONITOR = BluetoothServiceInfo(
-    name="Qingping Air Monitor Lite",
+    name="OCleanX Air Monitor Lite",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -74,7 +74,7 @@ AIR_MONITOR = BluetoothServiceInfo(
 )
 
 AIR_MONITOR_DEV_TYPE_36 = BluetoothServiceInfo(
-    name="Qingping Air Monitor Lite",
+    name="OCleanX Air Monitor Lite",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -88,7 +88,7 @@ AIR_MONITOR_DEV_TYPE_36 = BluetoothServiceInfo(
 )
 
 CLOCK_LITE = BluetoothServiceInfo(
-    name="Qingping BT Clock Lite",
+    name="OCleanX BT Clock Lite",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -100,7 +100,7 @@ CLOCK_LITE = BluetoothServiceInfo(
 )
 
 NO_VALID_DATA = BluetoothServiceInfo(
-    name="Qingping Motion & Light",
+    name="OCleanX Motion & Light",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -151,8 +151,8 @@ LEES_GUITARS_PASSIVE_ADDR = BluetoothServiceInfo(
 )
 
 
-QINGPING_DOOR_WINDOW = BluetoothServiceInfo(
-    name="Qingping Door/Window Sensor",
+OCLEANX_DOOR_WINDOW = BluetoothServiceInfo(
+    name="OCleanX Door/Window Sensor",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -164,8 +164,8 @@ QINGPING_DOOR_WINDOW = BluetoothServiceInfo(
 )
 
 
-QINGPING_TEMP_RH_M = BluetoothServiceInfo(
-    name="Qingping Temp RH M",
+OCLEANX_TEMP_RH_M = BluetoothServiceInfo(
+    name="OCleanX Temp RH M",
     manufacturer_data={},
     service_uuids=[],
     address="aa:bb:cc:dd:ee:ff",
@@ -178,27 +178,27 @@ QINGPING_TEMP_RH_M = BluetoothServiceInfo(
 
 
 def test_supported_motion_and_light():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parser.supported(MOTION_AND_LIGHT_ENSURE_SUPPORTED) is True
     assert parser.title == "Motion & Light " "EEFF"
 
 
 def test_supported_set_the_title():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parser.supported(NO_VALID_DATA) is False
     parser.supported(LIGHT_AND_MOTION) is True
     assert parser.title == "Motion & Light " "EEFF"
 
 
 def test_motion_and_light_signal_only():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     assert parser.update(LIGHT_AND_MOTION) == SensorUpdate(
         title="Motion & Light EEFF",
         devices={
             None: SensorDeviceInfo(
                 name="Motion & Light " "EEFF",
                 model="CGPR1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -244,9 +244,9 @@ def test_motion_and_light_signal_only():
 
 
 def test_motion_and_light_battery_update():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     service_info = BluetoothServiceInfo(
-        name="Qingping Motion & Light",
+        name="OCleanX Motion & Light",
         manufacturer_data={},
         service_uuids=[],
         address="aa:bb:cc:dd:ee:ff",
@@ -264,7 +264,7 @@ def test_motion_and_light_battery_update():
             None: SensorDeviceInfo(
                 name="Motion & Light " "EEFF",
                 model="CGPR1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -309,9 +309,9 @@ def test_motion_and_light_battery_update():
 
 
 def test_has_motion():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     service_info = BluetoothServiceInfo(
-        name="Qingping Motion & Light",
+        name="OCleanX Motion & Light",
         manufacturer_data={},
         service_uuids=[],
         address="aa:bb:cc:dd:ee:ff",
@@ -329,7 +329,7 @@ def test_has_motion():
             None: SensorDeviceInfo(
                 name="Motion & Light " "EEFF",
                 model="CGPR1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -375,7 +375,7 @@ def test_has_motion():
 
 
 def test_alarm_clock():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parsed = parser.update(ALARM_CLOCK)
     assert parsed == SensorUpdate(
         title="Alarm Clock EEFF",
@@ -383,7 +383,7 @@ def test_alarm_clock():
             None: SensorDeviceInfo(
                 name="Alarm Clock EEFF",
                 model="CGD1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -438,7 +438,7 @@ def test_alarm_clock():
 
 
 def test_air_monitor():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parsed = parser.update(AIR_MONITOR)
     assert parsed == SensorUpdate(
         title="Air Monitor Lite EEFF",
@@ -446,7 +446,7 @@ def test_air_monitor():
             None: SensorDeviceInfo(
                 name="Air Monitor Lite EEFF",
                 model="CGDN1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -521,7 +521,7 @@ def test_air_monitor():
 
 
 def test_air_monitor_dev_type_36():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parsed = parser.update(AIR_MONITOR_DEV_TYPE_36)
     assert parsed == SensorUpdate(
         title="Air Monitor Lite EEFF",
@@ -529,7 +529,7 @@ def test_air_monitor_dev_type_36():
             None: SensorDeviceInfo(
                 name="Air Monitor Lite EEFF",
                 model="CGDN1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -604,7 +604,7 @@ def test_air_monitor_dev_type_36():
 
 
 def test_clock_lite():
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parsed = parser.update(CLOCK_LITE)
     assert parsed == SensorUpdate(
         title="BT Clock Lite EEFF",
@@ -612,7 +612,7 @@ def test_clock_lite():
             None: SensorDeviceInfo(
                 name="BT Clock Lite EEFF",
                 model="CGC1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -670,7 +670,7 @@ def test_clock_lite():
     "adv", [LEES_GUITARS_PASSIVE, LEES_GUITARS, LEES_GUITARS_PASSIVE_ADDR]
 )
 def test_lees_gutairs(adv):
-    parser = QingpingBluetoothDeviceData()
+    parser = OCleanXBluetoothDeviceData()
     parsed = parser.update(adv)
     assert parsed == SensorUpdate(
         title="Lee Guitars Thermo-Hygrometer EEFF",
@@ -678,7 +678,7 @@ def test_lees_gutairs(adv):
             None: SensorDeviceInfo(
                 name="Lee Guitars " "Thermo-Hygrometer EEFF",
                 model="CGM1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -733,15 +733,15 @@ def test_lees_gutairs(adv):
 
 
 def test_door_window():
-    parser = QingpingBluetoothDeviceData()
-    parsed = parser.update(QINGPING_DOOR_WINDOW)
+    parser = OCleanXBluetoothDeviceData()
+    parsed = parser.update(OCLEANX_DOOR_WINDOW)
     assert parsed == SensorUpdate(
         title="Door/Window Sensor EEFF",
         devices={
             None: SensorDeviceInfo(
                 name="Door/Window Sensor EEFF",
                 model="CGH1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )
@@ -777,15 +777,15 @@ def test_door_window():
 
 
 def test_temp_rh_m():
-    parser = QingpingBluetoothDeviceData()
-    parsed = parser.update(QINGPING_TEMP_RH_M)
+    parser = OCleanXBluetoothDeviceData()
+    parsed = parser.update(OCLEANX_TEMP_RH_M)
     assert parsed == SensorUpdate(
-        title="Qingping Temp RH M EEFF",
+        title="OCleanX Temp RH M EEFF",
         devices={
             None: SensorDeviceInfo(
-                name="Qingping Temp RH M EEFF",
+                name="OCleanX Temp RH M EEFF",
                 model="CGG1",
-                manufacturer="Qingping",
+                manufacturer="OCleanX",
                 sw_version=None,
                 hw_version=None,
             )

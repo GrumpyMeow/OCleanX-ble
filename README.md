@@ -1,14 +1,14 @@
-# Qingping BLE
+# OCleanX BLE
 
 <p align="center">
-  <a href="https://github.com/bluetooth-devices/qingping-ble/actions?query=workflow%3ACI">
-    <img src="https://img.shields.io/github/workflow/status/bluetooth-devices/qingping-ble/CI/main?label=CI&logo=github&style=flat-square" alt="CI Status" >
+  <a href="https://github.com/bluetooth-devices/ocleanx-ble/actions?query=workflow%3ACI">
+    <img src="https://img.shields.io/github/workflow/status/bluetooth-devices/ocleanx-ble/CI/main?label=CI&logo=github&style=flat-square" alt="CI Status" >
   </a>
-  <a href="https://qingping-ble.readthedocs.io">
-    <img src="https://img.shields.io/readthedocs/qingping-ble.svg?logo=read-the-docs&logoColor=fff&style=flat-square" alt="Documentation Status">
+  <a href="https://ocleanx-ble.readthedocs.io">
+    <img src="https://img.shields.io/readthedocs/ocleanx-ble.svg?logo=read-the-docs&logoColor=fff&style=flat-square" alt="Documentation Status">
   </a>
-  <a href="https://codecov.io/gh/bluetooth-devices/qingping-ble">
-    <img src="https://img.shields.io/codecov/c/github/bluetooth-devices/qingping-ble.svg?logo=codecov&logoColor=fff&style=flat-square" alt="Test coverage percentage">
+  <a href="https://codecov.io/gh/bluetooth-devices/ocleanx-ble">
+    <img src="https://img.shields.io/codecov/c/github/bluetooth-devices/ocleanx-ble.svg?logo=codecov&logoColor=fff&style=flat-square" alt="Test coverage percentage">
   </a>
 </p>
 <p align="center">
@@ -23,20 +23,20 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://pypi.org/project/qingping-ble/">
-    <img src="https://img.shields.io/pypi/v/qingping-ble.svg?logo=python&logoColor=fff&style=flat-square" alt="PyPI Version">
+  <a href="https://pypi.org/project/ocleanx-ble/">
+    <img src="https://img.shields.io/pypi/v/ocleanx-ble.svg?logo=python&logoColor=fff&style=flat-square" alt="PyPI Version">
   </a>
-  <img src="https://img.shields.io/pypi/pyversions/qingping-ble.svg?style=flat-square&logo=python&amp;logoColor=fff" alt="Supported Python versions">
-  <img src="https://img.shields.io/pypi/l/qingping-ble.svg?style=flat-square" alt="License">
+  <img src="https://img.shields.io/pypi/pyversions/ocleanx-ble.svg?style=flat-square&logo=python&amp;logoColor=fff" alt="Supported Python versions">
+  <img src="https://img.shields.io/pypi/l/ocleanx-ble.svg?style=flat-square" alt="License">
 </p>
 
-Qingping BLE support
+OCleanX BLE support
 
 ## Installation
 
 Install this via pip (or your favourite package manager):
 
-`pip install qingping-ble`
+`pip install ocleanx-ble`
 
 ## Contributors ✨
 

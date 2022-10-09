@@ -1,4 +1,4 @@
-# Welcome to Qingping BLE documentation!
+# Welcome to OCleanX BLE documentation!
 
 ```{toctree}
 :caption: Installation & Usage

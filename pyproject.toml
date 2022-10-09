@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "qingping-ble"
-version = "0.7.0"
-description = "Qingping BLE support"
+name = "ocleanx-ble"
+version = "0.1.0"
+description = "OCleanX BLE support"
 authors = ["J. Nick Koston <nick@koston.org>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/bluetooth-devices/qingping-ble"
-documentation = "https://qingping-ble.readthedocs.io"
+repository = "https://github.com/bluetooth-devices/ocleanx-ble"
+documentation = "https://ocleanx-ble.readthedocs.io"
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
@@ -15,12 +15,12 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 packages = [
-    { include = "qingping_ble", from = "src" },
+    { include = "ocleanx_ble", from = "src" },
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/bluetooth-devices/qingping-ble/issues"
-"Changelog" = "https://github.com/bluetooth-devices/qingping-ble/blob/main/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/bluetooth-devices/ocleanx-ble/issues"
+"Changelog" = "https://github.com/bluetooth-devices/ocleanx-ble/blob/main/CHANGELOG.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -47,11 +47,11 @@ pytest-cov = "^3.0"
 [tool.semantic_release]
 branch = "main"
 version_toml = "pyproject.toml:tool.poetry.version"
-version_variable = "src/qingping_ble/__init__.py:__version__"
+version_variable = "src/ocleanx_ble/__init__.py:__version__"
 build_command = "pip install poetry && poetry build"
 
 [tool.pytest.ini_options]
-addopts = "-v -Wdefault --cov=qingping_ble --cov-report=term-missing:skip-covered"
+addopts = "-v -Wdefault --cov=ocleanx_ble --cov-report=term-missing:skip-covered"
 pythonpath = ["src"]
 
 [tool.coverage.run]
@@ -67,7 +67,7 @@ exclude_lines = [
 
 [tool.isort]
 profile = "black"
-known_first_party = ["qingping_ble", "tests"]
+known_first_party = ["ocleanx_ble", "tests"]
 
 [tool.mypy]
 check_untyped_defs = true

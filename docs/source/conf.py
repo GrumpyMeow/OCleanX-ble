@@ -17,9 +17,9 @@ from typing import Any, List
 
 # -- Project information -----------------------------------------------------
 
-project = "Qingping BLE"
-copyright = "2020, J. Nick Koston"
-author = "J. Nick Koston"
+project = "OCleanX BLE"
+copyright = "2022, S. Schutten"
+author = "S. Schutten"
 
 
 # -- General configuration ---------------------------------------------------
